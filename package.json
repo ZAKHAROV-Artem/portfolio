@@ -1,0 +1,44 @@
+{
+  "name": "portfolio-slider",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@popmotion/popcorn": "^0.4.4",
+    "@sanity-typed/types": "^6.1.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.21.1",
+    "@tanstack/react-query": "^5.13.4",
+    "axios": "^1.6.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "dayjs": "^1.11.10",
+    "framer-motion": "^10.16.16",
+    "lucide-react": "^0.294.0",
+    "next": "14.0.4",
+    "next-sanity": "^5.5.11",
+    "react": "^18",
+    "react-dom": "^18",
+    "sanity": "^3.21.1",
+    "styled-components": "^6.1.1",
+    "swiper": "^11.0.5",
+    "tailwind-merge": "^2.1.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
