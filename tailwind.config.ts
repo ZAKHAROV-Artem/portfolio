@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -13,9 +15,8 @@ module.exports = {
       padding: "2rem",
       screens: {
         "2xl": "1360px",
-        xl: "1000px",
-        lg: "900px",
-        md: "800px",
+        xl: "1200px",
+        lg: "1000px",
       },
     },
     screens: {
@@ -33,6 +34,12 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-roboto-serif)", ...defaultTheme.fontFamily.sans],
+        amatic: ["var(--font-amatic)"],
+        slab: ["var(--font-roboto-slab)"],
+        "organic-relief": ["var(--font-organic-relief)"],
+      },
       transitionDelay: {
         "1200": "1200ms",
         "1500": "1500ms",
@@ -40,8 +47,8 @@ module.exports = {
       },
       backgroundImage: {
         ua: `linear-gradient(to bottom,
-          rgb(9, 77, 224) 0% 50%,
-          rgb(245, 236, 66) 0% 100%
+          rgb(9, 77, 224) 0% 56%,
+          rgb(245, 236, 66) 56% 100%
         );`,
       },
       keyframes: {

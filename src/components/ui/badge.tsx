@@ -1,30 +1,16 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { ReactNode } from "react";
+import Image from "next/image";
 
-import { cn } from "@/lib/utils";
-
-const badgeVariants = cva(
-  `px-5 font-bold py-2 flex items-center justify-center inline-flex rounded-full`,
-  {
-    variants: {
-      variant: {
-        default: "bg-white text-black",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-);
-
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
-
-function Badge({ className, variant, ...props }: BadgeProps) {
+type Props = {
+  children: ReactNode;
+};
+export default function Badge({ children }: Props) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div className="flex rounded-sm overflow-hidden h-10">
+      <div className="h-full font-slab bg-white text-xl font-semibold px-2 flex items-center justify-center">
+        {children}
+      </div>
+      <Image src="/badge-end.png" alt="" width={28} quality={100} height={40} />
+    </div>
   );
 }
-
-export { Badge, badgeVariants };

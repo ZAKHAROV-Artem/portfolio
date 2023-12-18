@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 body {
+  font-family: var(--font-roboto-serif);
   overflow: hidden;
 }
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.badge {
+  clip-path: polygon(0 0, 75% 0%, 100% 50%, 75% 100%, 0 100%, 0% 50%);
 }

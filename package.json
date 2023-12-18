@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@popmotion/popcorn": "^0.4.4",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@sanity-typed/types": "^6.1.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.21.1",
@@ -28,7 +30,8 @@
     "styled-components": "^6.1.1",
     "swiper": "^11.0.5",
     "tailwind-merge": "^2.1.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "usehooks-ts": "^2.9.1"
   },
   "devDependencies": {
     "@types/node": "^20",

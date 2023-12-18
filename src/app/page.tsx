@@ -7,29 +7,44 @@ import { wrap } from "@popmotion/popcorn";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import MainPage from "./components/main-page";
+import { useState } from "react";
+import MainPage from "./components/main-page/main-page";
 import { imageVariants, wrapperVariants } from "@/data/anim-data";
 
+const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
   const [[page, direction], setPage] = useState([0, 0]);
   const pageIndex = wrap(0, 4, page);
+  const [[leftToltipText, rightToltipText], setTooltipText] = useState<
+    [string, string]
+  >(["Tech", "About me"]);
+
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
+    setTimeout(() => {
+      setTooltipText([
+        pages.at((page + newDirection - 1) % 4) || "",
+        pages.at((page + newDirection + 1) % 4) || "",
+      ]);
+    }, 1300);
   };
   return (
     <main>
-      <SliderControlButton className="left-4" action={() => paginate(-1)}>
-        <MoveLeft
-          className="text-white group-hover:-translate-x-2 duration-300"
-          size={30}
-        />
+      <SliderControlButton
+        tooltipText={leftToltipText}
+        tooltipClassName="left-8"
+        className="left-4"
+        action={() => paginate(-1)}
+      >
+        <MoveLeft className=" w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:-translate-x-2 duration-300" />
       </SliderControlButton>
-      <SliderControlButton className="right-4" action={() => paginate(1)}>
-        <MoveRight
-          className="text-white group-hover:translate-x-2 duration-300"
-          size={30}
-        />
+      <SliderControlButton
+        tooltipText={rightToltipText}
+        tooltipClassName="right-8"
+        className="right-4"
+        action={() => paginate(1)}
+      >
+        <MoveRight className=" w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:translate-x-2 duration-300" />
       </SliderControlButton>
       <div
         className={cn("w-full h-screen relative  duration-700 delay-1000 ", {

@@ -4,6 +4,6 @@ import { Tech } from "@/types/tech";
 
 export default async function getTech() {
   return await client.fetch<Tech[]>(groq`
-  *[_type == "tech"]{..., category->} 
+  *[_type == "tech"] | order(_createdAt asc){..., category->} 
   `);
 }

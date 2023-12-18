@@ -1,9 +1,29 @@
 import type { Metadata } from "next";
-import { Amatic_SC } from "next/font/google";
+import { Amatic_SC, Roboto_Serif, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "@/providers/react-query-provider";
+import localFont from "next/font/local";
 
-const amatic = Amatic_SC({ subsets: ["latin"], weight: ["400", "700"] });
+const organic_relief = localFont({
+  src: "../../public/organic-relief.ttf",
+  display: "swap",
+  variable: "--font-organic-relief",
+});
+const roboto_serif = Roboto_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-serif",
+});
+const roboto_slab = Roboto_Slab({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-slab",
+});
+const amatic = Amatic_SC({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-amatic",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +37,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={amatic.className}>
+      <body
+        className={`${roboto_serif.variable} ${amatic.variable} ${roboto_slab.variable} ${organic_relief.variable}`}
+      >
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
