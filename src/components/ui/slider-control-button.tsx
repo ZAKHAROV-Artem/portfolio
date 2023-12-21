@@ -45,7 +45,7 @@ export default function SliderControlButton({
   return (
     <motion.div
       className={cn(
-        "w-12 sm:w-16 h-12 sm:h-16 fixed top-1/2 mix-blend-difference cursor-pointer -translate-y-1/2 z-50 grid place-content-center rounded-full bg-transparent border-2 border-dotted hover:border-dashed",
+        "w-12 sm:w-16 h-12 sm:h-16 fixed top-1/2 mix-blend-difference cursor-pointer -translate-y-1/2 z-40 grid place-content-center rounded-full bg-transparent border-2 border-dotted hover:border-dashed",
         className
       )}
       ref={ref}

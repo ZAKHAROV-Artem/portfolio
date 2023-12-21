@@ -1,5 +1,6 @@
 "use client";
 
+
 import { wrapperVariants } from "@/data/anim-data";
 import { motion } from "framer-motion";
 import RecentProjects from "./recent-projects";
@@ -12,6 +13,7 @@ type Props = {
   direction: number;
 };
 export default function MainPage({ direction }: Props) {
+  
   return (
     <motion.div
       variants={wrapperVariants}

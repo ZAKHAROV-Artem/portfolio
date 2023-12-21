@@ -7,10 +7,11 @@ import { wrap } from "@popmotion/popcorn";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 import MainPage from "./components/main-page/main-page";
 import { imageVariants, wrapperVariants } from "@/data/anim-data";
 import TechPage from "./components/tech-page/tech-page";
+import { useState,useEffect } from "react";
+import Loader from "@/components/ui/loader";
 
 const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
@@ -29,8 +30,23 @@ export default function Home() {
       ]);
     }, 1300);
   };
+  const [loading,setLoading] = useState<boolean>(true);
+  const [animStart,setAnimStart] = useState<boolean>(false);
+  useEffect(()=>{
+    setAnimStart(true)
+
+    setTimeout(()=>{
+
+      setLoading(false)
+    },500)
+  },[])
   return (
     <main>
+      {loading && <div className={cn(" absolute z-50 h-screen w-full bg-black flex items-center duration-500 justify-center",{
+      "opacity-0":animStart
+    })}>
+      <Loader/>
+    </div>}
       <SliderControlButton
         tooltipText={leftToltipText}
         tooltipClassName="left-8"

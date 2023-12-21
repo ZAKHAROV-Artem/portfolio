@@ -33,7 +33,8 @@ export default function RecentProjects() {
               width={1000}
               height={1000}
               quality={100}
-              className="object-contain md:h-80"
+              className="object-contain md:h-80 opacity-0 duration-1000"
+              onLoadingComplete={(image) => image.classList.remove("opacity-0")}
               alt=""
             />
           </div>
