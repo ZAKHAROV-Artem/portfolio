@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useState } from "react";
 import MainPage from "./components/main-page/main-page";
 import { imageVariants, wrapperVariants } from "@/data/anim-data";
+import TechPage from "./components/tech-page/tech-page";
 
 const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
@@ -47,13 +48,18 @@ export default function Home() {
         <MoveRight className=" w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:translate-x-2 duration-300" />
       </SliderControlButton>
       <div
-        className={cn("w-full h-screen relative  duration-700 delay-1000 ", {
-          "bg-white": pageIndex === 0 || pageIndex === 2,
-          "bg-black": pageIndex === 1 || pageIndex === 3,
-        })}
+        className={cn(
+          "w-full bg-white h-screen relative  duration-700 delay-1000 "
+          // {
+          //   "bg-white": pageIndex === 0 || pageIndex === 2,
+          //   "bg-black": pageIndex === 1 || pageIndex === 3,
+          // }
+        )}
       >
         <AnimatePresence initial={false} custom={direction}>
-          {pageIndex === 0 && <MainPage direction={direction} />}
+          {pageIndex === 0 && (
+            <MainPage key={"main-page"} direction={direction} />
+          )}
           {pageIndex === 1 && (
             <motion.div
               key={1}
@@ -116,34 +122,7 @@ export default function Home() {
             </motion.div>
           )}
           {pageIndex === 3 && (
-            <motion.div
-              key={1}
-              variants={wrapperVariants}
-              animate="animate"
-              initial={"initial"}
-              exit="exit"
-              custom={direction}
-              className="max-h-screen h-full w-full overflow-y-scroll"
-            >
-              <div className="relative">
-                <motion.div
-                  variants={imageVariants}
-                  animate="animate"
-                  initial={"initial"}
-                  exit="exit"
-                >
-                  <Image
-                    src="/2.jpg"
-                    width={1800}
-                    height={1119}
-                    alt="Puma"
-                    className="select-none h-screen object-cover"
-                  />
-                </motion.div>{" "}
-                <ScrollDown className="absolute bottom-4 left-1/2 -translate-x-1/2" />
-              </div>
-              <div className="h-screen bg-green-300 w-full"></div>
-            </motion.div>
+            <TechPage key={"tech-page"} direction={direction} />
           )}
         </AnimatePresence>
       </div>

@@ -17,7 +17,6 @@ export default function MainPage({ direction }: Props) {
       variants={wrapperVariants}
       animate="animate"
       initial={"initial"}
-      key={"main-page"}
       exit="exit"
       custom={direction}
       className="max-h-screen bg-black h-full w-full overflow-x-hidden overflow-y-scroll"

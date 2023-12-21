@@ -3,7 +3,7 @@ import { Amatic_SC, Roboto_Serif, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "@/providers/react-query-provider";
 import localFont from "next/font/local";
-
+import { Toaster } from "react-hot-toast";
 const organic_relief = localFont({
   src: "../../public/organic-relief.ttf",
   display: "swap",
@@ -40,6 +40,7 @@ export default function RootLayout({
       <body
         className={`${roboto_serif.variable} ${amatic.variable} ${roboto_slab.variable} ${organic_relief.variable}`}
       >
+        <Toaster />
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
