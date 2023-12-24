@@ -10,8 +10,9 @@ import Image from "next/image";
 import MainPage from "./components/main-page/main-page";
 import { imageVariants, wrapperVariants } from "@/data/anim-data";
 import TechPage from "./components/tech-page/tech-page";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Loader from "@/components/ui/loader";
+import AboutMePage from "./components/about-me-page/about-me-page";
 
 const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
@@ -30,23 +31,29 @@ export default function Home() {
       ]);
     }, 1300);
   };
-  const [loading,setLoading] = useState<boolean>(true);
-  const [animStart,setAnimStart] = useState<boolean>(false);
-  useEffect(()=>{
-    setAnimStart(true)
+  const [loading, setLoading] = useState<boolean>(true);
+  const [animStart, setAnimStart] = useState<boolean>(false);
+  useEffect(() => {
+    setAnimStart(true);
 
-    setTimeout(()=>{
-
-      setLoading(false)
-    },500)
-  },[])
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
   return (
     <main>
-      {loading && <div className={cn(" absolute z-50 h-screen w-full bg-black flex items-center duration-500 justify-center",{
-      "opacity-0":animStart
-    })}>
-      <Loader/>
-    </div>}
+      {loading && (
+        <div
+          className={cn(
+            " absolute z-50 h-screen w-full bg-black flex items-center duration-500 justify-center",
+            {
+              "opacity-0": animStart,
+            }
+          )}
+        >
+          <Loader />
+        </div>
+      )}
       <SliderControlButton
         tooltipText={leftToltipText}
         tooltipClassName="left-8"
@@ -77,34 +84,7 @@ export default function Home() {
             <MainPage key={"main-page"} direction={direction} />
           )}
           {pageIndex === 1 && (
-            <motion.div
-              key={1}
-              variants={wrapperVariants}
-              animate="animate"
-              initial={"initial"}
-              exit="exit"
-              custom={direction}
-              className="max-h-screen h-full w-full overflow-y-scroll"
-            >
-              <div className="relative">
-                <motion.div
-                  variants={imageVariants}
-                  animate="animate"
-                  initial={"initial"}
-                  exit="exit"
-                >
-                  <Image
-                    src="/2.jpg"
-                    width={1800}
-                    height={1119}
-                    alt="Puma"
-                    className="select-none h-screen object-cover"
-                  />
-                </motion.div>{" "}
-                <ScrollDown className="absolute bottom-4 left-1/2 -translate-x-1/2" />
-              </div>
-              <div className="h-screen bg-green-300 w-full"></div>
-            </motion.div>
+            <AboutMePage direction={direction} key={"about-me-page"} />
           )}
           {pageIndex === 2 && (
             <motion.div
