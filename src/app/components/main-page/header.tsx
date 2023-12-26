@@ -33,6 +33,7 @@ export default function Header() {
             width={509}
             height={576}
             alt={""}
+            priority
           />
           <Image
             className="absolute top-[65%] xl:block hidden left-20"
@@ -41,6 +42,7 @@ export default function Header() {
             width={229}
             height={197}
             alt={""}
+            priority
           />
           <Image
             className="absolute w-80 md:w-96 -left-20 md:-left-10 top-[59%] sm:top-[57%] xl:top-0 xl:left-0"
@@ -49,6 +51,7 @@ export default function Header() {
             width={559}
             height={798}
             alt={""}
+            priority
           />
         </header>
       </motion.div>

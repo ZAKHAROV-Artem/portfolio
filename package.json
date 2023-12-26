@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@popmotion/popcorn": "^0.4.4",
+    "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@sanity-typed/types": "^6.1.1",
@@ -22,6 +23,7 @@
     "clsx": "^2.0.0",
     "dayjs": "^1.11.10",
     "framer-motion": "^10.16.16",
+    "immer": "^10.0.3",
     "lucide-react": "^0.294.0",
     "next": "14.0.4",
     "next-sanity": "^5.5.11",
@@ -36,7 +38,8 @@
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^2.9.1",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/node": "^20",
