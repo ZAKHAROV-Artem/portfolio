@@ -1,5 +1,6 @@
 import ScrollDown from "@/components/ui/scroll-down";
 import { wrapperVariants, imageVariants } from "@/data/anim-data";
+import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import Image from "next/image";
 type Props = {
@@ -55,28 +56,36 @@ export default function AboutMePage({ direction }: Props) {
           </div>{" "}
           <div className="grid relative z-30 sm:grid-cols-2 gap-10 text-white py-10">
             <div>
-            <h3 className="text-2xl">Introduction</h3>
-            <p>I am 17 years old self-taught developer in Ukraine, dived into the world of coding and software development.</p>
+              <h3 className="text-2xl">Introduction</h3>
+              <p>
+                I am {dayjs().diff(dayjs("01/09/2006"), "y")} years old
+                self-taught developer in Ukraine, dived into the world of coding
+                and software development.
+              </p>
             </div>
             <div>
-            <h3 className="text-2xl">Background</h3>
-            <p>
-            My tenure within the realm of Information Technology has been marked by extensive accomplishments. I have adeptly crafted games, developed Android applications, engineered servers and created a lot of websites.
-            </p>
+              <h3 className="text-2xl">Background</h3>
+              <p>
+                My tenure within the realm of Information Technology has been
+                marked by extensive experience. I have crafted games, developed
+                Android applications, engineered servers and created a lot of
+                websites.
+              </p>
             </div>
             <div>
-            <h3 className="text-2xl">Education</h3>
-            <p>
-            At present, I am enrolled in Computer Science at the University of Silesia in Katowice, Poland.
-            </p>
+              <h3 className="text-2xl">Education</h3>
+              <p>
+                At present, I am enrolled in Computer Science at the University
+                of Silesia in Katowice, Poland.
+              </p>
             </div>
             <div>
-            <h3 className="text-2xl">Some facts</h3>
-            <p>
-              I speak 4 languages: Ukrainian, English, Polish, russian.
-              <br />
-              I love skiing, kickboxing, runing, coding and tech things
-            </p> </div>
+              <h3 className="text-2xl">Some facts</h3>
+              <p>
+                I speak 4 languages: Ukrainian, English, Polish, russian.
+                <br />I love skiing, kickboxing, runing, coding and tech things
+              </p>{" "}
+            </div>
           </div>
         </motion.div>{" "}
       </div>

@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import Loader from "@/components/ui/loader";
 import AboutMePage from "./components/about-me-page/about-me-page";
 import ProjectPopover from "@/components/ui/project-popover";
+import ProjectsPage from "./components/projects/projects-page";
 
 const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
@@ -88,35 +89,7 @@ export default function Home() {
             <AboutMePage direction={direction} key={"about-me-page"} />
           )}
           {pageIndex === 2 && (
-            <motion.div
-              key={2}
-              variants={wrapperVariants}
-              animate="animate"
-              initial={"initial"}
-              exit="exit"
-              custom={direction}
-              className="max-h-screen h-full w-full overflow-y-scroll"
-            >
-              <div className="relative">
-                <motion.div
-                  variants={imageVariants}
-                  animate="animate"
-                  initial={"initial"}
-                  exit="exit"
-                >
-                  <Image
-                    src="/3.jpg"
-                    width={1800}
-                    height={1119}
-                    alt="Puma"
-                    className="select-none h-screen object-cover"
-                  />
-                </motion.div>{" "}
-                <ScrollDown className="absolute bottom-4 left-1/2 -translate-x-1/2" />
-              </div>
-
-              <div className="h-screen bg-blue-300 w-full"></div>
-            </motion.div>
+            <ProjectsPage direction={direction} key={"projects-page"} />
           )}
           {pageIndex === 3 && (
             <TechPage key={"tech-page"} direction={direction} />

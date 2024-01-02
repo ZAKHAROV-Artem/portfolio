@@ -49,16 +49,20 @@ export const project = defineType({
       of: [
         defineArrayMember({
           type: "image",
-          fields: [
-            defineField({
-              name: "isHero",
-              type: "boolean",
-              title: "Set as hero",
-            }),
-          ],
+          
         }),
       ],
     }),
+    defineField({
+      name: 'content',
+  type: 'array',
+  title: 'Content',
+  of: [
+    defineArrayMember({
+      type: 'block'
+    })
+  ]
+    })
   ],
 });
 

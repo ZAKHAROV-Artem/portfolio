@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ReactNode, useRef, useState } from "react";
 import { useToggle } from "usehooks-ts";
 
@@ -43,41 +44,48 @@ export default function SliderControlButton({
 
   const { x, y } = position;
   return (
-    <motion.div
-      className={cn(
-        "w-12 sm:w-16 h-12 sm:h-16 fixed top-1/2 mix-blend-difference cursor-pointer -translate-y-1/2 z-40 grid place-content-center rounded-full bg-transparent border-2 border-dotted hover:border-dashed",
-        className
-      )}
-      ref={ref}
-      onMouseMove={handleMouse}
-      onMouseLeave={() => {
-        reset();
-        setValue(false);
-      }}
-      animate={{ x, y }}
-      onClick={action}
-      onMouseEnter={() => setValue(true)}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 15,
-        mass: 0.1,
-      }}
-    >
-      {tooltipText && (
-        <div
-          className={cn(
-            "bg-white text-center absolute duration-500 pointer-events-none top-1/2 p-3 opacity-0 rounded-lg w-28 -translate-y-[170%]",
-            tooltipClassName,
-            {
-              "opacity-1": visible,
-            }
-          )}
-        >
+    <Link href={`#${tooltipText}`}>
+      <motion.div
+        className={cn(
+          "w-12 sm:w-16 h-12 sm:h-16 absolute top-1/2 mix-blend-difference cursor-pointer -translate-y-1/2 z-40 grid place-content-center rounded-full bg-transparent border-2 border-dotted hover:border-dashed",
+          className
+        )}
+        ref={ref}
+        onMouseMove={handleMouse}
+        onMouseLeave={() => {
+          reset();
+          setValue(false);
+        }}
+        animate={{ x, y }}
+        onClick={action}
+        onMouseEnter={() => setValue(true)}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 15,
+          mass: 0.1,
+        }}
+      >
+        <div className="block md:hidden text-white text-[12px] sm:text-sm text-center">
           {tooltipText}
         </div>
-      )}
-      {children}
-    </motion.div>
+        <div className="hidden md:block">
+          {children}
+          {tooltipText && (
+            <div
+              className={cn(
+                "bg-white text-center absolute duration-500 pointer-events-none top-1/2 p-3 opacity-0 rounded-lg w-28 -translate-y-[170%]",
+                tooltipClassName,
+                {
+                  "opacity-1": visible,
+                }
+              )}
+            >
+              {tooltipText}
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </Link>
   );
 }

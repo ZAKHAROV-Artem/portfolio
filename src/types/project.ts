@@ -1,5 +1,5 @@
 import { Tech } from "./tech";
-import { ProjectMedia } from "./media";
+import { Media } from "./media";
 
 export type Project = {
   _id: string;
@@ -8,5 +8,6 @@ export type Project = {
   slug: string;
   link?: string;
   tech: Tech[];
-  images: ProjectMedia[];
+  images: Media[];
+  content:any[]
 };

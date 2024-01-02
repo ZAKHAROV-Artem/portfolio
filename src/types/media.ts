@@ -8,6 +8,3 @@ export type Media = {
   _type:string
 }
 
-export type ProjectMedia = Media & {
-  isHero:boolean;
-}

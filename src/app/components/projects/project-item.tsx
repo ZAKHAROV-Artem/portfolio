@@ -23,7 +23,7 @@ export default function ProjectItem({ project }: Props) {
         <span className="italic font-amatic col-span-2 md:col-auto text-4xl">
           {project.tech[0].name || ""}
         </span>
-        <h3 className="text-3xl md:text-4xl lg:text-5xl leading-none font-bold">
+        <h3 className="text-3xl  lg:text-4xl xl:text-5xl leading-none font-bold">
           {project.name}
         </h3>
         <MoveUpRight className="w-7 self-end md:w-10 h-7 md:h-10 group-hover:translate-x-4 group-hover:-translate-y-4 duration-300" />{" "}
