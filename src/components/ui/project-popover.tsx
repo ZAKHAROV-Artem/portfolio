@@ -58,24 +58,33 @@ export default function ProjectPopover({}: Props) {
           ))}
         </Swiper>
         <div className="mt-5 font-slab grid md:grid-cols-[1.5fr,1fr] gap-5">
-       
-         <div>
-          <PortableText value={project?.content} components={components} />
-         </div>
-         <div>
-            <h3 className="text-xl md:text-2xl my-3">Link</h3>
-          <Link className="ml-3 text-purple-300 underline" href={project?.link}>{project?.link?new URL(project.link).hostname:""}</Link>
-          <h3 className="text-xl md:text-2xl my-3">Tech</h3>
-          <div className="flex flex-wrap gap-3 ">
-            {project?.tech.map((tech) => (
-              <div
-                className="bg-white text-sm md:text-lg rounded-full text-black px-5 cursor-default py-2"
-                key={tech._id}
-              >
-                {tech.name}
-              </div>
-            ))}
-          </div> </div> 
+          <div>
+            <PortableText value={project?.content} components={components} />
+          </div>
+          <div>
+            {project?.link && (
+              <>
+                <h3 className="text-xl md:text-2xl my-3">Link</h3>
+                <Link
+                  className="ml-3 text-purple-300 underline"
+                  href={project.link}
+                >
+                  {new URL(project.link).hostname}
+                </Link>
+              </>
+            )}
+            <h3 className="text-xl md:text-2xl my-3">Tech</h3>
+            <div className="flex flex-wrap gap-3 ">
+              {project?.tech.map((tech) => (
+                <div
+                  className="bg-white text-sm md:text-lg rounded-full text-black px-5 cursor-default py-2"
+                  key={tech._id}
+                >
+                  {tech.name}
+                </div>
+              ))}
+            </div>{" "}
+          </div>
         </div>
       </PopoverContent>
     </Popover>
