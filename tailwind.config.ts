@@ -50,7 +50,7 @@ module.exports = {
           rgb(9, 77, 224) 0% 56%,
           rgb(245, 236, 66) 56% 100%
         );`,
-        loader:`linear-gradient(#f07e6e, #84cdfa, #5ad1cd);`
+        loader: `linear-gradient(#f07e6e, #84cdfa, #5ad1cd);`,
       },
       keyframes: {
         "accordion-down": {

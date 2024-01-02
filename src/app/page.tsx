@@ -13,7 +13,7 @@ import TechPage from "./components/tech-page/tech-page";
 import { useState, useEffect } from "react";
 import Loader from "@/components/ui/loader";
 import AboutMePage from "./components/about-me-page/about-me-page";
-import ProjectPopover from "@/components/ui/project-popover";
+import ProjectPopover from "@/components/complex/project-popover";
 import ProjectsPage from "./components/projects/projects-page";
 
 const pages = ["Home", "About me", "Projects", "Tech"];

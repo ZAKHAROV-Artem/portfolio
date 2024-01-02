@@ -1,5 +1,6 @@
 "use client";
 
+import SocialMedia from "@/components/complex/social-media";
 import ScrollDown from "@/components/ui/scroll-down";
 import { imageVariants } from "@/data/anim-data";
 import { motion } from "framer-motion";
@@ -15,7 +16,7 @@ export default function Header() {
         exit="exit"
       >
         <header className="bg-black w-full h-screen relative">
-          <div className="w-full relative z-40 text-white h-screen grid place-content-center">
+          <div className="w-full relative z-40 text-white h-screen flex flex-col items-center justify-center">
             <span className="text-md sm:text-2xl text-center leading-loose font-organic-relief uppercase">
               {"Hi, I'm"}
             </span>
@@ -25,6 +26,7 @@ export default function Header() {
             <span className="text-xl sm:text-2xl md:text-4xl text-center bg-ua bg-clip-text text-transparent relative p-2">
               Fullstack developer
             </span>
+            <SocialMedia />
           </div>
           <Image
             className="absolute w-80 xl:w-88 -top-20 sm:-top-10 xl:top-10 -right-20 sm:-right-4"
