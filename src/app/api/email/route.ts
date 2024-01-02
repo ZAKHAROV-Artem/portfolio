@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       from: process.env.SMTP_USERNAME,
       to,
       subject: "Zakharov Artem",
-      html: { path: "http://localhost:3000/email.html" },
+      html: { path: "https://zakharov-artem.vercel.app/email.html" },
     };
 
     transporter.sendMail(mailOptions);
