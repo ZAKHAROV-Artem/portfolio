@@ -43,10 +43,10 @@ export default function Footer() {
                 alt="Song cover"
               />{" "}
               <div className="font-mono space-y-2">
-                <div>{data?.data.items[randomIndex].snippet.title}</div>
+                <div>{data?.data.items[randomIndex]?.snippet.title}</div>
                 <Link
                   className="uppercase block w-fit bg-white text-black px-2 py-1 rounded-lg"
-                  href={`https://music.youtube.com/watch?v=${data?.data.items[randomIndex].snippet.resourceId.videoId}`}
+                  href={`https://music.youtube.com/watch?v=${data?.data.items[randomIndex]?.snippet.resourceId.videoId}`}
                   target="_blank"
                 >
                   Listen
