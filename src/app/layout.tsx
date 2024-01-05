@@ -5,6 +5,9 @@ import ReactQueryProvider from "@/providers/react-query-provider";
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import dayjs from "dayjs";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+
 const organic_relief = localFont({
   src: "../../public/organic-relief.ttf",
   display: "swap",
@@ -109,6 +112,8 @@ export default function RootLayout({
         className={`${roboto_serif.variable} ${amatic.variable} ${roboto_slab.variable} ${organic_relief.variable}`}
       >
         <Toaster />
+        <SpeedInsights />
+        <Analytics />
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
