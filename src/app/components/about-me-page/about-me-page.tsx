@@ -58,7 +58,7 @@ export default function AboutMePage({ direction }: Props) {
             <div>
               <h3 className="text-2xl">Introduction</h3>
               <p>
-                I am {dayjs().diff(dayjs("01/09/2006"), "y")} years old
+                I am {dayjs().diff(dayjs("2006-09-01"), "y")} years old
                 self-taught developer in Ukraine, dived into the world of coding
                 and software development.
               </p>
