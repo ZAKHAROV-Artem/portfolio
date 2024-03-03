@@ -1,5 +1,5 @@
 import { urlForImage } from "#/lib/image";
-import { Tech } from "@/types/tech";
+import { Tech } from "@/types/sanity";
 import dayjs from "dayjs";
 import Image from "next/image";
 
