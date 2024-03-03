@@ -72,7 +72,7 @@ export default function ContactMe() {
           </div>{" "}
           <textarea
             placeholder="Message"
-            className="relative z-10 h-16 w-full max-w-screen-lg resize-none rounded-2xl border px-5 py-3 outline-none sm:rounded-[30px]"
+            className="relative z-10 h-32 w-full max-w-screen-lg resize-none rounded-2xl border px-5 py-3 outline-none sm:rounded-[30px]"
             {...register("message")}
           />
         </form>
