@@ -1,7 +1,7 @@
 "use client";
 
 import { urlForImage } from "#/lib/image";
-import { useTech } from "@/hooks/queries/useTech";
+import { useTech } from "@/hooks/queries/use-tech";
 import dayjs from "dayjs";
 import Image from "next/image";
 import TechItem from "./tech-item";

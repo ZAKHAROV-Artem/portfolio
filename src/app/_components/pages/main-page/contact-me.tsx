@@ -1,20 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useEmail } from "@/hooks/mutations/useEmail";
+import { useEmail } from "@/hooks/mutations/use-email";
 import Image from "next/image";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EmailFields, EmailValidationSchema } from "@/validation/email";
 import toast from "react-hot-toast";
 
 export default function ContactMe() {
-  const { mutateAsync } = useEmail();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<EmailFields>({
+  const { mutateAsync, isPending } = useEmail();
+  const { register, handleSubmit, reset } = useForm<EmailFields>({
     mode: "onBlur",
     defaultValues: {
       email: "",
@@ -23,25 +18,33 @@ export default function ContactMe() {
   });
   const onSubmit: SubmitHandler<EmailFields> = async ({ email }) => {
     if (sessionStorage.getItem("sent")) {
-      toast("You already wrote me !", {
-        icon: "👏",
+      toast("You already wrote me today", {
+        icon: "😊",
       });
       return;
     }
     await mutateAsync(
-      { to: email },
+      { email },
       {
         onSuccess: (res) => {
-          if (res.data.status === 200) {
-            toast.success(res.data.body);
-          } else {
-            toast.error(res.data.body);
+          if (res.error) {
+            toast(res.error, {
+              icon: "😨",
+            });
           }
-          sessionStorage.setItem("sent", "yes");
+          if (res.success) {
+            toast.success(res.success);
+            sessionStorage.setItem("sent", "yes");
+          }
           reset();
         },
       }
     );
+  };
+  const onError: SubmitErrorHandler<EmailFields> = async () => {
+    toast("Invalid email", {
+      icon: "😱",
+    });
   };
   return (
     <div className="relative">
@@ -50,21 +53,22 @@ export default function ContactMe() {
           WANT TO HAVE AN AWESOME PROJECT DONE?
         </h2>
         <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col relative max-w-screen-lg z-10 sm:flex-row items-center p-1 px-2 bg-white  border rounded-2xl sm:rounded-full overflow-hidden border-black"
+          onSubmit={handleSubmit(onSubmit, onError)}
+          className="grid sm:grid-cols-[3fr,1fr] md:grid-cols-[4fr,1fr] gap-2 relative max-w-screen-lg z-10  items-center p-2 bg-white  border rounded-2xl sm:rounded-full overflow-hidden border-black"
         >
           <input
             placeholder="Enter your e-mail here"
-            className="w-full px-2 py-3 border-none  outline-none"
+            className="w-full px-2 py-3 h-full border-none rounded-lg  outline-none"
             type="email"
             {...register("email")}
           />
           <Button
             type="submit"
-            className="w-full sm:w-fit rounded-xl sm:rounded-3xl"
+            className="w-full h-full rounded-xl sm:rounded-3xl"
             variant="dark"
+            disabled={isPending}
           >
-            Contact me
+            {isPending ? "Sending..." : "Contact me"}
           </Button>
         </form>
       </div>

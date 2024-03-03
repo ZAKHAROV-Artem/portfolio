@@ -1,20 +1,19 @@
 "use client";
 
-import ScrollDown from "@/components/ui/scroll-down";
-import SliderControlButton from "@/components/ui/slider-control-button";
+import {
+  ProjectsPage,
+  AboutMePage,
+  TechPage,
+  MainPage,
+} from "./_components/pages";
 import { cn } from "@/lib/utils";
 import { wrap } from "@popmotion/popcorn";
-import { motion, AnimatePresence, cubicBezier } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
-import Image from "next/image";
-import MainPage from "./components/main-page/main-page";
-import { imageVariants, wrapperVariants } from "@/data/anim-data";
-import TechPage from "./components/tech-page/tech-page";
 import { useState, useEffect } from "react";
+import SliderControlButton from "@/components/ui/slider-control-button";
 import Loader from "@/components/ui/loader";
-import AboutMePage from "./components/about-me-page/about-me-page";
-import ProjectPopover from "@/components/complex/project-popover";
-import ProjectsPage from "./components/projects/projects-page";
+import ProjectPopover from "@/components/ui/project-popover";
 
 const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
@@ -75,10 +74,6 @@ export default function Home() {
       <div
         className={cn(
           "w-full bg-white h-screen relative  duration-700 delay-1000 "
-          // {
-          //   "bg-white": pageIndex === 0 || pageIndex === 2,
-          //   "bg-black": pageIndex === 1 || pageIndex === 3,
-          // }
         )}
       >
         <AnimatePresence initial={false} custom={direction}>

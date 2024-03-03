@@ -1,4 +1,4 @@
-import { Project } from "@/types/project";
+import { Project } from "@/types/sanity";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 

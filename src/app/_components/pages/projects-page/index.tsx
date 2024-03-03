@@ -1,6 +1,6 @@
 "use client";
 import { wrapperVariants, imageVariants } from "@/data/anim-data";
-import { useProjects } from "@/hooks/queries/useProjects";
+import { useProjects } from "@/hooks/queries/use-projects";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ProjectItem from "./project-item";
@@ -28,10 +28,9 @@ export default function ProjectsPage({ direction }: Props) {
           exit="exit"
         >
           <div className="container my-10 grid grid-cols-2 gap-5">
-          {projects?.map((project) => (
-            <ProjectItem project={project} key={project._id} />
-          ))}
-         
+            {projects?.map((project) => (
+              <ProjectItem project={project} key={project._id} />
+            ))}
           </div>
         </motion.div>{" "}
       </div>

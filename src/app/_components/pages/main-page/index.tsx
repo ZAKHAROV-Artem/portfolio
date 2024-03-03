@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import RecentProjects from "./recent-projects";
 import Tech from "./tech";
 import Header from "./header";
-import Footer from "@/components/common/footer";
+import Footer from "@/components/footer";
 import ContactMe from "./contact-me";
 
 type Props = {

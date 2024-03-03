@@ -1,6 +1,6 @@
 "use client";
 
-import SocialMedia from "@/components/complex/social-media";
+import SocialMedia from "@/components/ui/social-media";
 import ScrollDown from "@/components/ui/scroll-down";
 import { imageVariants } from "@/data/anim-data";
 import { motion } from "framer-motion";
