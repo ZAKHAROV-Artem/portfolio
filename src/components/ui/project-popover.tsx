@@ -67,6 +67,7 @@ export default function ProjectPopover({}: Props) {
                 <h3 className="text-xl md:text-2xl my-3">Link</h3>
                 <Link
                   className="ml-3 text-purple-300 underline"
+                  target="_blank"
                   href={project.link}
                 >
                   {new URL(project.link).hostname}
