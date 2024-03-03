@@ -15,21 +15,21 @@ export default function Header() {
         initial={"initial"}
         exit="exit"
       >
-        <header className="bg-black w-full h-screen relative">
-          <div className="w-full relative z-40 text-white h-screen flex flex-col items-center justify-center">
-            <span className="text-md sm:text-2xl text-center leading-loose font-organic-relief uppercase">
+        <header className="relative h-screen w-full bg-black">
+          <div className="relative z-40 flex h-screen w-full flex-col items-center justify-center text-white">
+            <span className="text-md text-center font-organic-relief uppercase leading-loose sm:text-2xl">
               {"Hi, I'm"}
             </span>
-            <h1 className="sm:my-3 md:my-5 xl:my-7 leading-loose font-organic-relief text-center uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="text-center font-organic-relief text-2xl uppercase leading-loose sm:my-3 sm:text-3xl md:my-5 md:text-4xl lg:text-5xl xl:my-7">
               Zakharov Artem
             </h1>
-            <span className="text-xl sm:text-2xl md:text-4xl text-center bg-ua bg-clip-text text-transparent relative p-2">
+            <span className="relative bg-ua bg-clip-text p-2 text-center text-xl text-transparent sm:text-2xl md:text-4xl">
               Fullstack developer
             </span>
             <SocialMedia />
           </div>
           <Image
-            className="absolute w-80 xl:w-88 -top-20 sm:-top-10 xl:top-10 -right-20 sm:-right-4"
+            className="xl:w-88 absolute -right-20 -top-20 w-80 sm:-right-4 sm:-top-10 xl:top-10"
             src="/shape-2.png"
             quality={100}
             width={509}
@@ -38,7 +38,7 @@ export default function Header() {
             priority
           />
           <Image
-            className="absolute top-[65%] xl:block hidden left-20"
+            className="absolute left-20 top-[65%] hidden xl:block"
             src="/shape-3.png"
             quality={100}
             width={229}
@@ -47,7 +47,7 @@ export default function Header() {
             priority
           />
           <Image
-            className="absolute w-80 md:w-96 -left-20 md:-left-10 top-[59%] sm:top-[57%] xl:top-0 xl:left-0"
+            className="absolute -left-20 top-[59%] w-80 sm:top-[57%] md:-left-10 md:w-96 xl:left-0 xl:top-0"
             src="/shape-1.png"
             quality={100}
             width={559}

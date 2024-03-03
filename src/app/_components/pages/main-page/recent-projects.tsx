@@ -8,13 +8,15 @@ export default function RecentProjects() {
 
   return (
     <div className="container space-y-10">
-      <h2 className="text-white text-5xl font-bold font-slab">
+      <h2 className="font-slab text-5xl font-bold text-white">
         Recent projects
       </h2>
       <div className="grid grid-cols-2 gap-10">
-        {projects?.slice(0, 4).map((project) => (
-          <ProjectItem project={project} key={project._id} />
-        ))}
+        {projects
+          ?.slice(0, 4)
+          .map((project) => (
+            <ProjectItem project={project} key={project._id} />
+          ))}
       </div>
     </div>
   );

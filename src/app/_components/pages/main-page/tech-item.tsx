@@ -8,7 +8,7 @@ type Props = {
 };
 export default function TechItem({ tech }: Props) {
   return (
-    <div className="flex relative z-10 p-2 gap-x-5 text-white">
+    <div className="relative z-10 flex gap-x-5 p-2 text-white">
       <Image
         src={urlForImage(tech.image)}
         alt=""
@@ -18,8 +18,8 @@ export default function TechItem({ tech }: Props) {
         className="object-contain"
       />
       <div className="">
-        <h3 className="text-xl md:text-2xl font-bold">{tech.name}</h3>
-        <span className="text-lg md:text-xl opacity-50">
+        <h3 className="text-xl font-bold md:text-2xl">{tech.name}</h3>
+        <span className="text-lg opacity-50 md:text-xl">
           + {Math.ceil(dayjs().diff(dayjs(`${tech.experience}`), "month") / 12)}{" "}
           years of experience
         </span>

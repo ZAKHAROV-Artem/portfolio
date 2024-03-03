@@ -22,7 +22,7 @@ export default function ProjectPopover({}: Props) {
     <Popover open={open} modal onOpenChange={setOpen}>
       <PopoverContent className="overflow-y-scroll">
         <Minimize2
-          className="w-10 h-10 hover:scale-90 duration-150 mb-10 cursor-pointer"
+          className="mb-10 h-10 w-10 cursor-pointer duration-150 hover:scale-90"
           onClick={setFalse}
         />
         <Swiper
@@ -57,14 +57,14 @@ export default function ProjectPopover({}: Props) {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="mt-5 font-slab grid md:grid-cols-[1.5fr,1fr] gap-5">
+        <div className="mt-5 grid gap-5 font-slab md:grid-cols-[1.5fr,1fr]">
           <div>
             <PortableText value={project?.content} components={components} />
           </div>
           <div>
             {project?.link && (
               <>
-                <h3 className="text-xl md:text-2xl my-3">Link</h3>
+                <h3 className="my-3 text-xl md:text-2xl">Link</h3>
                 <Link
                   className="ml-3 text-purple-300 underline"
                   target="_blank"
@@ -74,11 +74,11 @@ export default function ProjectPopover({}: Props) {
                 </Link>
               </>
             )}
-            <h3 className="text-xl md:text-2xl my-3">Tech</h3>
+            <h3 className="my-3 text-xl md:text-2xl">Tech</h3>
             <div className="flex flex-wrap gap-3 ">
               {project?.tech.map((tech) => (
                 <div
-                  className="bg-white text-sm md:text-lg rounded-full text-black px-5 cursor-default py-2"
+                  className="cursor-default rounded-full bg-white px-5 py-2 text-sm text-black md:text-lg"
                   key={tech._id}
                 >
                   {tech.name}

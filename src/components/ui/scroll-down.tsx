@@ -8,12 +8,12 @@ export default function ScrollDown({ className }: Props) {
   return (
     <div
       className={cn(
-        "w-fit flex text-white mix-blend-difference  flex-col justify-center items-center gap-y-2",
-        className
+        "flex w-fit flex-col items-center  justify-center gap-y-2 text-white mix-blend-difference",
+        className,
       )}
     >
       <Mouse className="animate-bounce" />
-      <span className="text-lg uppercase font-bold font-amatic">
+      <span className="font-amatic text-lg font-bold uppercase">
         Scroll down
       </span>
     </div>

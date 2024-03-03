@@ -7,9 +7,9 @@ export default function Weather() {
   const { data, isSuccess } = useWeather();
   if (!isSuccess) return null;
   return (
-    <div className="font-amatic text-center sm:text-left text-white text-3xl">
+    <div className="text-center font-amatic text-3xl text-white sm:text-left">
       <span>In my city now</span>
-      <div className=" flex gap-x-3 items-center">
+      <div className=" flex items-center gap-x-3">
         <span>
           {`${data.data.current.temperature_2m} ${data.data.current_units.temperature_2m}`}
         </span>

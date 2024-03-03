@@ -18,7 +18,7 @@ export default function ProjectsPage({ direction }: Props) {
       initial={"initial"}
       exit="exit"
       custom={direction}
-      className="bg-black h-full w-full overflow-y-scroll"
+      className="h-full w-full overflow-y-scroll bg-black"
     >
       <div className="relative">
         <motion.div

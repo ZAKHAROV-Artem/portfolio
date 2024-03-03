@@ -16,18 +16,18 @@ export default function ProjectItem({ project }: Props) {
         console.log("change");
         setTrue();
       }}
-      className="group space-y-1 cursor-pointer"
+      className="group cursor-pointer space-y-1"
     >
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div className="font-amatic text-white">
-          <span className="italic text-xl sm:text-2xl md:text-3xl">
+          <span className="text-xl italic sm:text-2xl md:text-3xl">
             {project.tech[0].name || ""}
           </span>
-          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
+          <h3 className="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
             {project.name}
           </h3>
         </div>
-        <MoveUpRight className=" text-white h-7 w-7 hidden md:block group-hover:scale-125 group-hover:rotate-180 duration-300" />{" "}
+        <MoveUpRight className=" hidden h-7 w-7 text-white duration-300 group-hover:rotate-180 group-hover:scale-125 md:block" />{" "}
       </div>
       <Image
         src={urlForImage(project.images[0])}

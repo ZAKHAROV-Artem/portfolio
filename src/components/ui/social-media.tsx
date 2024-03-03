@@ -2,7 +2,7 @@ import { Linkedin, Github, Instagram, Send } from "lucide-react";
 import Link from "next/link";
 export default function SocialMedia() {
   return (
-    <div className="text-white w-fit flex gap-x-3">
+    <div className="flex w-fit gap-x-3 text-white">
       <Link
         href="https://www.linkedin.com/in/artem-zakharov-6b94b6251/"
         target="_blank"

@@ -47,8 +47,8 @@ export default function SliderControlButton({
     <Link href={`#${tooltipText}`}>
       <motion.div
         className={cn(
-          "w-12 sm:w-16 h-12 sm:h-16 absolute top-1/2 mix-blend-difference cursor-pointer -translate-y-1/2 z-40 grid place-content-center rounded-full bg-transparent border-2 border-dotted hover:border-dashed",
-          className
+          "absolute top-1/2 z-40 grid h-12 w-12 -translate-y-1/2 cursor-pointer place-content-center rounded-full border-2 border-dotted bg-transparent mix-blend-difference hover:border-dashed sm:h-16 sm:w-16",
+          className,
         )}
         ref={ref}
         onMouseMove={handleMouse}
@@ -66,7 +66,7 @@ export default function SliderControlButton({
           mass: 0.1,
         }}
       >
-        <div className="block md:hidden text-white text-[12px] sm:text-sm text-center">
+        <div className="block text-center text-[12px] text-white sm:text-sm md:hidden">
           {tooltipText}
         </div>
         <div className="hidden md:block">
@@ -74,11 +74,11 @@ export default function SliderControlButton({
           {tooltipText && (
             <div
               className={cn(
-                "bg-white text-center absolute duration-500 pointer-events-none top-1/2 p-3 opacity-0 rounded-lg w-28 -translate-y-[170%]",
+                "pointer-events-none absolute top-1/2 w-28 -translate-y-[170%] rounded-lg bg-white p-3 text-center opacity-0 duration-500",
                 tooltipClassName,
                 {
                   "opacity-1": visible,
-                }
+                },
               )}
             >
               {tooltipText}

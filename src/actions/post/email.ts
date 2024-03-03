@@ -1,21 +1,36 @@
 "use server";
 import transporter from "@/lib/nodemailer";
-import { EmailFields, EmailValidationSchema } from "@/validation/email";
+import {
+  ConcactMeFields,
+  ContactMeValidationSchema,
+} from "@/validation/contact-me";
 
-export default async function email(data: EmailFields) {
+export default async function email(data: ConcactMeFields) {
   try {
-    const validationResult = EmailValidationSchema.safeParse(data);
+    const validationResult = ContactMeValidationSchema.safeParse(data);
     if (!validationResult.success) {
-      return { error: "Invalid email !" };
+      return { error: "Invalid fields !" };
     }
-    const { email } = validationResult.data;
-    var mailOptions = {
+    const { email, message } = validationResult.data;
+    const mailOptionsToUser = {
       from: process.env.SMTP_USERNAME,
       to: email,
       subject: "Zakharov Artem",
       html: { path: "https://zakharov-artem.vercel.app/email.html" },
     };
-    await transporter.sendMail(mailOptions);
+    const mailOptionsToMe = {
+      from: process.env.SMTP_USERNAME,
+      to: "szakharovartem@gmail.com",
+      subject: "New message from portfolio",
+      html: `
+      <h1>New message from portfolio</h1>
+      <h3>From: ${email}</h3>
+      <h3>Message:</h3>
+      <p>${message}</p>
+      `,
+    };
+    await transporter.sendMail(mailOptionsToUser);
+    await transporter.sendMail(mailOptionsToMe);
     return { success: "Thanks !" };
   } catch (error) {
     return { error: "Sorry, but something went wrong" };

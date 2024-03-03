@@ -46,10 +46,10 @@ export default function Home() {
       {loading && (
         <div
           className={cn(
-            " absolute z-50 h-screen w-full bg-black flex items-center duration-500 justify-center",
+            " absolute z-50 flex h-screen w-full items-center justify-center bg-black duration-500",
             {
               "opacity-0": animStart,
-            }
+            },
           )}
         >
           <Loader />
@@ -61,7 +61,7 @@ export default function Home() {
         className="left-4"
         action={() => paginate(-1)}
       >
-        <MoveLeft className=" w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:-translate-x-2 duration-300" />
+        <MoveLeft className=" h-5 w-5 text-white duration-300 group-hover:-translate-x-2 sm:h-8 sm:w-8" />
       </SliderControlButton>
       <SliderControlButton
         tooltipText={rightToltipText}
@@ -69,11 +69,11 @@ export default function Home() {
         className="right-4"
         action={() => paginate(1)}
       >
-        <MoveRight className=" w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:translate-x-2 duration-300" />
+        <MoveRight className=" h-5 w-5 text-white duration-300 group-hover:translate-x-2 sm:h-8 sm:w-8" />
       </SliderControlButton>
       <div
         className={cn(
-          "w-full bg-white h-screen relative  duration-700 delay-1000 "
+          "relative h-screen w-full bg-white  delay-1000 duration-700 ",
         )}
       >
         <AnimatePresence initial={false} custom={direction}>

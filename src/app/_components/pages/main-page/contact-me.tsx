@@ -4,76 +4,81 @@ import { useEmail } from "@/hooks/mutations/use-email";
 import Image from "next/image";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { EmailFields, EmailValidationSchema } from "@/validation/email";
+import {
+  ConcactMeFields,
+  ContactMeValidationSchema,
+} from "@/validation/contact-me";
 import toast from "react-hot-toast";
 
 export default function ContactMe() {
   const { mutateAsync, isPending } = useEmail();
-  const { register, handleSubmit, reset } = useForm<EmailFields>({
+  const { register, handleSubmit, reset } = useForm<ConcactMeFields>({
     mode: "onBlur",
     defaultValues: {
       email: "",
+      message: "",
     },
-    resolver: zodResolver(EmailValidationSchema),
+    resolver: zodResolver(ContactMeValidationSchema),
   });
-  const onSubmit: SubmitHandler<EmailFields> = async ({ email }) => {
+  const onSubmit: SubmitHandler<ConcactMeFields> = async (data) => {
     if (sessionStorage.getItem("sent")) {
       toast("You already wrote me today", {
         icon: "😊",
       });
       return;
     }
-    await mutateAsync(
-      { email },
-      {
-        onSuccess: (res) => {
-          if (res.error) {
-            toast(res.error, {
-              icon: "😨",
-            });
-          }
-          if (res.success) {
-            toast.success(res.success);
-            sessionStorage.setItem("sent", "yes");
-          }
-          reset();
-        },
-      }
-    );
+    await mutateAsync(data, {
+      onSuccess: (res) => {
+        if (res.error) {
+          toast(res.error, {
+            icon: "😨",
+          });
+        }
+        if (res.success) {
+          toast.success(res.success);
+          sessionStorage.setItem("sent", "yes");
+        }
+        reset();
+      },
+    });
   };
-  const onError: SubmitErrorHandler<EmailFields> = async () => {
-    toast("Invalid email", {
+  const onError: SubmitErrorHandler<ConcactMeFields> = async (data) => {
+    toast((data.email?.message || data.message?.message) as string, {
       icon: "😱",
     });
   };
   return (
     <div className="relative">
-      <div className="container py-10 md:py-20 space-y-12">
-        <h2 className="font-organic-relief max-w-screen-lg relative z-10  mix-blend-difference text-white text-2xl md:text-4xl leading-loose md:leading-[2.2]">
+      <div className="container space-y-12 py-10 md:py-20">
+        <h2 className="relative z-10 max-w-screen-lg font-organic-relief  text-2xl leading-loose text-white mix-blend-difference md:text-4xl md:leading-[2.2]">
           WANT TO HAVE AN AWESOME PROJECT DONE?
         </h2>
-        <form
-          onSubmit={handleSubmit(onSubmit, onError)}
-          className="grid sm:grid-cols-[3fr,1fr] md:grid-cols-[4fr,1fr] gap-2 relative max-w-screen-lg z-10  items-center p-2 bg-white  border rounded-2xl sm:rounded-full overflow-hidden border-black"
-        >
-          <input
-            placeholder="Enter your e-mail here"
-            className="w-full px-2 py-3 h-full border-none rounded-lg  outline-none"
-            type="email"
-            {...register("email")}
+        <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5">
+          <div className="relative z-10 grid max-w-screen-lg items-center gap-2 overflow-hidden  rounded-2xl border border-black  bg-white p-2 sm:grid-cols-[3fr,1fr] sm:rounded-full md:grid-cols-[4fr,1fr]">
+            <input
+              placeholder="Enter your e-mail here"
+              className="h-full w-full rounded-lg border-none px-2 py-3  outline-none"
+              type="email"
+              {...register("email")}
+            />
+            <Button
+              type="submit"
+              className="h-full w-full rounded-xl sm:rounded-3xl"
+              variant="dark"
+              disabled={isPending}
+            >
+              {isPending ? "Sending..." : "Contact me"}
+            </Button>
+          </div>{" "}
+          <textarea
+            placeholder="Message"
+            className="relative z-10 h-16 w-full max-w-screen-lg resize-none rounded-2xl border px-5 py-3 outline-none sm:rounded-[30px]"
+            {...register("message")}
           />
-          <Button
-            type="submit"
-            className="w-full h-full rounded-xl sm:rounded-3xl"
-            variant="dark"
-            disabled={isPending}
-          >
-            {isPending ? "Sending..." : "Contact me"}
-          </Button>
         </form>
       </div>
       <Image
-        className="absolute md:w-[650px] object-cover -bottom-[150px] sm:-bottom-[200px] md:-bottom-[270px] left-0"
+        className="absolute -bottom-[150px] left-0 object-cover sm:-bottom-[200px] md:-bottom-[270px] md:w-[650px]"
         src="/shape-4.png"
         quality={100}
         width={982}
@@ -81,7 +86,7 @@ export default function ContactMe() {
         alt={""}
       />
       <Image
-        className="absolute right-0 hidden lg:block -top-20 w-80"
+        className="absolute -top-20 right-0 hidden w-80 lg:block"
         src="/shape-5.png"
         quality={100}
         width={485}

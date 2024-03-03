@@ -19,11 +19,11 @@ export default function MainPage({ direction }: Props) {
       initial={"initial"}
       exit="exit"
       custom={direction}
-      className="max-h-screen bg-black h-full w-full overflow-x-hidden overflow-y-scroll"
+      className="h-full max-h-screen w-full overflow-x-hidden overflow-y-scroll bg-black"
     >
       <Header />
 
-      <div className="space-y-20 mt-20 overflow-hidden">
+      <div className="mt-20 space-y-20 overflow-hidden">
         <RecentProjects />
         <Tech />
         <ContactMe />
