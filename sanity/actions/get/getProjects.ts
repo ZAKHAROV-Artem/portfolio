@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "../../lib/client";
-import { Project } from "@/types/project";
+import { Project } from "@/types/sanity";
 
 export default async function getProjects() {
   return await client.fetch<Project[]>(groq`
