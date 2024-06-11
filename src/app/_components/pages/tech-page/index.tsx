@@ -22,7 +22,7 @@ export default function TechPage({ direction }: Props) {
       custom={direction}
       className="h-full max-h-screen w-full overflow-x-hidden overflow-y-scroll bg-black py-5"
     >
-      <div className="container relative flex h-full items-center">
+      <div className="container relative my-5 flex h-full items-center">
         <motion.div
           variants={imageVariants}
           animate="animate"
@@ -32,7 +32,7 @@ export default function TechPage({ direction }: Props) {
           <div className="grid gap-10 xl:grid-cols-2">
             <div>
               <Badge>Web</Badge>
-              <div className="mt-5 grid gap-5 xs:grid-cols-2">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 {tech
                   ?.filter((tech) => tech.category.name === "Web")
                   .map((tech) => <TechItem tech={tech} key={tech._id} />)}
@@ -40,7 +40,7 @@ export default function TechPage({ direction }: Props) {
             </div>
             <div>
               <Badge>Frameworks</Badge>
-              <div className="mt-5 grid gap-5 xs:grid-cols-2">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 {tech
                   ?.filter((tech) => tech.category.name === "Frameworks")
                   .map((tech) => <TechItem tech={tech} key={tech._id} />)}
@@ -48,7 +48,7 @@ export default function TechPage({ direction }: Props) {
             </div>
             <div>
               <Badge>Libraries</Badge>
-              <div className="mt-5 grid gap-5 xs:grid-cols-2">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 {tech
                   ?.filter((tech) => tech.category.name === "Libraries")
                   .map((tech) => <TechItem tech={tech} key={tech._id} />)}
@@ -56,7 +56,7 @@ export default function TechPage({ direction }: Props) {
             </div>
             <div>
               <Badge>Data</Badge>
-              <div className="mt-5 grid gap-5 xs:grid-cols-2">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 {tech
                   ?.filter((tech) => tech.category.name === "Data")
                   .map((tech) => <TechItem tech={tech} key={tech._id} />)}
