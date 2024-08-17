@@ -66,10 +66,10 @@ export default function AboutMePage({ direction }: Props) {
             <div>
               <h3 className="text-2xl">Background</h3>
               <p>
-                My tenure within the realm of Information Technology has been
-                marked by extensive experience. I have crafted games, developed
-                Android applications, engineered servers and created a lot of
-                websites.
+                I've been coding since 2017, creating many websites, apps, and
+                games. Over the years, I've gained a lot of experience. Now, I
+                focus on building websites and mobile apps using React.js,
+                Next.js, React Native, and TypeScript.
               </p>
             </div>
             <div>
