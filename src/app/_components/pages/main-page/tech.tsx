@@ -1,11 +1,12 @@
 "use client";
 
-import { urlForImage } from "#/lib/image";
+import Badge from "@/components/ui/badge";
 import { useTech } from "@/hooks/queries/use-tech";
+import { urlForImage } from "#/lib/image";
 import dayjs from "dayjs";
 import Image from "next/image";
+
 import TechItem from "./tech-item";
-import Badge from "@/components/ui/badge";
 
 export default function Tech() {
   const { data: tech } = useTech();
@@ -14,12 +15,12 @@ export default function Tech() {
     <div className="relative">
       <div className="container">
         <Image
-          className="absolute right-0 top-0 z-0 hidden w-[750px] select-none md:block"
-          src="/tech.png"
-          quality={100}
-          width={960}
-          height={1647}
           alt={""}
+          className="absolute right-0 top-0 z-0 hidden w-[750px] select-none md:block"
+          height={1647}
+          quality={100}
+          src="/tech.png"
+          width={960}
         />
         <div className="relative z-10 font-slab text-white md:max-w-xl">
           <span className="text-3xl font-black sm:text-4xl">and finally,</span>
@@ -37,7 +38,7 @@ export default function Tech() {
             <div className="mt-5 grid gap-5 xs:grid-cols-2">
               {tech
                 ?.filter((tech) => tech.category.name === "Web")
-                .map((tech) => <TechItem tech={tech} key={tech._id} />)}
+                .map((tech) => <TechItem key={tech._id} tech={tech} />)}
             </div>
           </div>
           <div>
@@ -45,7 +46,7 @@ export default function Tech() {
             <div className="mt-5 grid gap-5 xs:grid-cols-2">
               {tech
                 ?.filter((tech) => tech.category.name === "Frameworks")
-                .map((tech) => <TechItem tech={tech} key={tech._id} />)}
+                .map((tech) => <TechItem key={tech._id} tech={tech} />)}
             </div>
           </div>
           <div>
@@ -53,7 +54,7 @@ export default function Tech() {
             <div className="mt-5 grid gap-5 xs:grid-cols-2">
               {tech
                 ?.filter((tech) => tech.category.name === "Libraries")
-                .map((tech) => <TechItem tech={tech} key={tech._id} />)}
+                .map((tech) => <TechItem key={tech._id} tech={tech} />)}
             </div>
           </div>
           <div>
@@ -61,7 +62,7 @@ export default function Tech() {
             <div className="mt-5 grid gap-5 xs:grid-cols-2">
               {tech
                 ?.filter((tech) => tech.category.name === "Data")
-                .map((tech) => <TechItem tech={tech} key={tech._id} />)}
+                .map((tech) => <TechItem key={tech._id} tech={tech} />)}
             </div>
           </div>
         </div>

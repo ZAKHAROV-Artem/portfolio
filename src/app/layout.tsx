@@ -1,46 +1,48 @@
 import type { Metadata, Viewport } from "next";
-import { Amatic_SC, Roboto_Serif, Roboto_Slab } from "next/font/google";
-import "./globals.css";
+
 import ReactQueryProvider from "@/providers/react-query-provider";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import dayjs from "dayjs";
+import { Amatic_SC, Roboto_Serif, Roboto_Slab } from "next/font/google";
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
-import dayjs from "dayjs";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+
+import "./globals.css";
 
 const organic_relief = localFont({
-  src: "../../public/organic-relief.ttf",
   display: "swap",
+  src: "../../public/organic-relief.ttf",
   variable: "--font-organic-relief",
 });
 const roboto_serif = Roboto_Serif({
-  subsets: ["latin"],
   display: "swap",
+  subsets: ["latin"],
   variable: "--font-roboto-serif",
 });
 const roboto_slab = Roboto_Slab({
-  subsets: ["latin"],
   display: "swap",
+  subsets: ["latin"],
   variable: "--font-roboto-slab",
 });
 const amatic = Amatic_SC({
   subsets: ["latin"],
-  weight: ["400", "700"],
   variable: "--font-amatic",
+  weight: ["400", "700"],
 });
 export const viewport: Viewport = {
   themeColor: "black",
 };
 export const metadata: Metadata = {
-  title: "Zakharov Artem - Fullstack Developer",
-  description: `I've been developing websites for ${dayjs().diff(
-    "1/1/2020",
-    "year"
-  )} years straight. Get in touch with me to know more.`,
   applicationName: "Portfolio website",
   authors: {
     name: "Zakharov Artem",
   },
+  creator: "Zakharov Artem",
+  description: `I've been developing websites for ${dayjs().diff(
+    "1/1/2020",
+    "year"
+  )} years straight. Get in touch with me to know more.`,
   generator: "nextjs, react",
   keywords: [
     "Full-Stack Developer",
@@ -65,18 +67,11 @@ export const metadata: Metadata = {
     "Performance Optimization",
     "Zakharov Artem, About me, Projects, Tech, Zakharov Artem projects",
   ],
-  creator: "Zakharov Artem",
-  publisher: "Zakharov Artem",
-  robots: "index, follow",
   openGraph: {
-    type: "website",
-    url: "https://zakharov-artem.vercel.app",
-    title: "Zakharov Artem - Fullstack Developer",
     description: `I've been developing websites for ${dayjs().diff(
       "1/1/2020",
       "year"
     )} years straight. Get in touch with me to know more.`,
-    siteName: "Portfolio website",
     images: [
       {
         url: "https://zakharov-artem.vercel.app/dark1.png",
@@ -88,16 +83,23 @@ export const metadata: Metadata = {
         url: "https://zakharov-artem.vercel.app/dark3.png",
       },
     ],
+    siteName: "Portfolio website",
+    title: "Zakharov Artem - Fullstack Developer",
+    type: "website",
+    url: "https://zakharov-artem.vercel.app",
   },
+  publisher: "Zakharov Artem",
+  robots: "index, follow",
+  title: "Zakharov Artem - Fullstack Developer",
   twitter: {
     card: "summary_large_image",
-    site: "@zakharov",
     creator: "@zakharov",
-    title: "Zakharov Artem - Fullstack Developer",
     description: `I've been developing websites for ${dayjs().diff(
       "1/1/2020",
       "year"
     )} years straight. Get in touch with me to know more.`,
+    site: "@zakharov",
+    title: "Zakharov Artem - Fullstack Developer",
   },
 };
 

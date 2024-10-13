@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import Image from "next/image";
+import { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -10,7 +10,7 @@ export default function Badge({ children }: Props) {
       <div className="flex h-full items-center justify-center bg-white px-2 font-slab text-xl font-semibold">
         {children}
       </div>
-      <Image src="/badge-end.png" alt="" width={28} quality={100} height={40} />
+      <Image alt="" height={40} quality={100} src="/badge-end.png" width={28} />
     </div>
   );
 }

@@ -1,12 +1,14 @@
 "use client";
 
+import Footer from "@/components/footer";
+import CVbutton from "@/components/ui/cv-button";
 import { wrapperVariants } from "@/data/anim-data";
 import { motion } from "framer-motion";
+
+import ContactMe from "./contact-me";
+import Header from "./header";
 import RecentProjects from "./recent-projects";
 import Tech from "./tech";
-import Header from "./header";
-import Footer from "@/components/footer";
-import ContactMe from "./contact-me";
 
 type Props = {
   direction: number;
@@ -14,15 +16,14 @@ type Props = {
 export default function MainPage({ direction }: Props) {
   return (
     <motion.div
-      variants={wrapperVariants}
       animate="animate"
-      initial={"initial"}
-      exit="exit"
-      custom={direction}
       className="h-full max-h-screen w-full overflow-x-hidden overflow-y-scroll bg-black"
+      custom={direction}
+      exit="exit"
+      initial={"initial"}
+      variants={wrapperVariants}
     >
       <Header />
-
       <div className="mt-20 space-y-20 overflow-hidden">
         <RecentProjects />
         <Tech />

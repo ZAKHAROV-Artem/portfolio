@@ -1,19 +1,21 @@
 "use client";
 
+import CVbutton from "@/components/ui/cv-button";
+import Loader from "@/components/ui/loader";
+import ProjectPopover from "@/components/ui/project-popover";
+import SliderControlButton from "@/components/ui/slider-control-button";
+import { cn } from "@/lib/utils";
+import { wrap } from "@popmotion/popcorn";
+import { AnimatePresence } from "framer-motion";
+import { MoveLeft, MoveRight } from "lucide-react";
+import { useState, useEffect } from "react";
+
 import {
   ProjectsPage,
   AboutMePage,
   TechPage,
   MainPage,
 } from "./_components/pages";
-import { cn } from "@/lib/utils";
-import { wrap } from "@popmotion/popcorn";
-import { AnimatePresence } from "framer-motion";
-import { MoveLeft, MoveRight } from "lucide-react";
-import { useState, useEffect } from "react";
-import SliderControlButton from "@/components/ui/slider-control-button";
-import Loader from "@/components/ui/loader";
-import ProjectPopover from "@/components/ui/project-popover";
 
 const pages = ["Home", "About me", "Projects", "Tech"];
 export default function Home() {
@@ -56,18 +58,18 @@ export default function Home() {
         </div>
       )}
       <SliderControlButton
-        tooltipText={leftToltipText}
-        tooltipClassName="left-8"
-        className="left-4"
         action={() => paginate(-1)}
+        className="left-4"
+        tooltipClassName="left-8"
+        tooltipText={leftToltipText}
       >
         <MoveLeft className=" h-5 w-5 text-white duration-300 group-hover:-translate-x-2 sm:h-8 sm:w-8" />
       </SliderControlButton>
       <SliderControlButton
-        tooltipText={rightToltipText}
-        tooltipClassName="right-8"
-        className="right-4"
         action={() => paginate(1)}
+        className="right-4"
+        tooltipClassName="right-8"
+        tooltipText={rightToltipText}
       >
         <MoveRight className=" h-5 w-5 text-white duration-300 group-hover:translate-x-2 sm:h-8 sm:w-8" />
       </SliderControlButton>
@@ -76,9 +78,9 @@ export default function Home() {
           "relative h-screen w-full bg-white  delay-1000 duration-700 ",
         )}
       >
-        <AnimatePresence initial={false} custom={direction}>
+        <AnimatePresence custom={direction} initial={false}>
           {pageIndex === 0 && (
-            <MainPage key={"main-page"} direction={direction} />
+            <MainPage direction={direction} key={"main-page"} />
           )}
           {pageIndex === 1 && (
             <AboutMePage direction={direction} key={"about-me-page"} />
@@ -87,10 +89,12 @@ export default function Home() {
             <ProjectsPage direction={direction} key={"projects-page"} />
           )}
           {pageIndex === 3 && (
-            <TechPage key={"tech-page"} direction={direction} />
+            <TechPage direction={direction} key={"tech-page"} />
           )}
         </AnimatePresence>
       </div>
+      <CVbutton />
+
       <ProjectPopover />
     </main>
   );

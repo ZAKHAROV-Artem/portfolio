@@ -19,14 +19,6 @@ export const useProjectPopover = create<State & Actions>()(
   immer((set) => ({
     open: false,
     project: null,
-    toggle: () =>
-      set((state) => {
-        state.open = !state.open;
-      }),
-    setTrue: () =>
-      set((state) => {
-        state.open = true;
-      }),
     setFalse: () =>
       set((state) => {
         state.open = false;
@@ -38,6 +30,14 @@ export const useProjectPopover = create<State & Actions>()(
     setProject: (project) =>
       set((state) => {
         state.project = project;
+      }),
+    setTrue: () =>
+      set((state) => {
+        state.open = true;
+      }),
+    toggle: () =>
+      set((state) => {
+        state.open = !state.open;
       }),
   }))
 );

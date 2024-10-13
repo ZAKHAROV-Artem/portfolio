@@ -9,21 +9,21 @@ type Props = {
 export default function AboutMePage({ direction }: Props) {
   return (
     <motion.div
+      animate="animate"
+      className="h-full w-full overflow-y-scroll bg-black"
+      custom={direction}
+      exit="exit"
+      initial={"initial"}
       key={1}
       variants={wrapperVariants}
-      animate="animate"
-      initial={"initial"}
-      exit="exit"
-      custom={direction}
-      className="h-full w-full overflow-y-scroll bg-black"
     >
       <div className="container relative flex h-full">
         <motion.div
-          className="w-full"
-          variants={imageVariants}
           animate="animate"
-          initial={"initial"}
+          className="w-full"
           exit="exit"
+          initial={"initial"}
+          variants={imageVariants}
         >
           <div className="relative pt-10 md:h-[80vh] lg:h-[90vh] xl:h-screen">
             <h1 className="mb-16 font-organic-relief text-xl uppercase leading-loose text-white sm:text-2xl md:text-3xl">
@@ -31,25 +31,25 @@ export default function AboutMePage({ direction }: Props) {
             </h1>
             <div className="relative grid grid-cols-2 grid-rows-2 md:block">
               <Image
-                className="z-20 md:absolute md:w-[300px] lg:w-[400px] xl:w-[500px]"
-                src="/dark2.png"
                 alt="Me 2"
-                width={500}
+                className="z-20 md:absolute md:w-[300px] lg:w-[400px] xl:w-[500px]"
                 height={500}
+                src="/dark2.png"
+                width={500}
               />
               <Image
-                className="z-20 row-span-2 self-center md:absolute md:right-0 md:w-[300px] lg:w-[400px] xl:w-[500px]"
-                src="/dark3.png"
                 alt="Me 3"
-                width={500}
+                className="z-20 row-span-2 self-center md:absolute md:right-0 md:w-[300px] lg:w-[400px] xl:w-[500px]"
                 height={500}
+                src="/dark3.png"
+                width={500}
               />
               <Image
-                className="z-30 md:absolute md:left-1/2 md:top-12 md:w-[300px] md:-translate-x-1/2 lg:w-[400px] xl:w-[500px]"
-                src="/dark1.png"
                 alt="Me 1"
-                width={500}
+                className="z-30 md:absolute md:left-1/2 md:top-12 md:w-[300px] md:-translate-x-1/2 lg:w-[400px] xl:w-[500px]"
                 height={500}
+                src="/dark1.png"
+                width={500}
               />
             </div>
             <ScrollDown className="absolute bottom-4 left-1/2 z-40 -translate-x-1/2 sm:bottom-12 md:bottom-4" />

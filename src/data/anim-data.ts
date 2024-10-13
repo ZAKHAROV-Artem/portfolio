@@ -1,14 +1,7 @@
 import { cubicBezier } from "framer-motion";
 
 export const wrapperVariants = {
-  initial: (direction: number) => {
-    return {
-      scale: 0.65,
-      x: direction > 0 ? "100%" : "-100%",
-    };
-  },
   animate: {
-    x: "0%",
     scale: 1,
     transition: {
       scale: {
@@ -21,10 +14,10 @@ export const wrapperVariants = {
         duration: 1,
       },
     },
+    x: "0%",
   },
   exit: (direction: number) => {
     return {
-      x: direction > 0 ? "-100%" : "100%",
       scale: 0.65,
       transition: {
         scale: {
@@ -37,15 +30,17 @@ export const wrapperVariants = {
           ease: "easeIn",
         },
       },
+      x: direction > 0 ? "-100%" : "100%",
+    };
+  },
+  initial: (direction: number) => {
+    return {
+      scale: 0.65,
+      x: direction > 0 ? "100%" : "-100%",
     };
   },
 };
 export const imageVariants = {
-  initial: (direction: number) => {
-    return {
-      scale: 1.25,
-    };
-  },
   animate: {
     scale: 1,
     transition: {
@@ -59,7 +54,6 @@ export const imageVariants = {
   exit: (direction: number) => {
     return {
       scale: 1.25,
-      x: direction > 0 ? 350 : -350,
       transition: {
         scale: {
           duration: 0.8,
@@ -71,6 +65,12 @@ export const imageVariants = {
           ease: "easeIn",
         },
       },
+      x: direction > 0 ? 350 : -350,
+    };
+  },
+  initial: (direction: number) => {
+    return {
+      scale: 1.25,
     };
   },
 };

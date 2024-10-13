@@ -1,9 +1,6 @@
 import { defineType, defineField,defineArrayMember } from "sanity";
 
 export const project = defineType({
-  name: "project",
-  title: "Project",
-  type: "document",
   fields: [
     defineField({
       name: "name",
@@ -12,57 +9,60 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: "Slug",
       name: "slug",
-      type: "slug",
-      validation: (Rule) => Rule.required(),
       options: {
-        source: "name",
         maxLength: 200, // will be ignored if slugify is set
         slugify: (input) =>
           input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+        source: "name",
       },
+      title: "Slug",
+      type: "slug",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: "Link",
       name: "link",
+      title: "Link",
       type: "url",
     }),
     defineField( {
       name: "tech",
+      of: [
+        defineArrayMember( {
+          to: [{ type: "tech" as const }],
+          type: "reference",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
       title: "Used technologies",
       type: "array",
       validation: (Rule) => Rule.required(),
-      of: [
-        defineArrayMember( {
-          type: "reference",
-          validation: (Rule) => Rule.required(),
-          to: [{ type: "tech" as const }],
-        }),
-      ],
     }),
     defineField({
       name: "images",
-      title: "Project images",
-      type: "array",
-      validation: (Rule) => Rule.required(),
       of: [
         defineArrayMember({
           type: "image",
           
         }),
       ],
+      title: "Project images",
+      type: "array",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'content',
-  type: 'array',
-  title: 'Content',
   of: [
     defineArrayMember({
       type: 'block'
     })
-  ]
+  ],
+  title: 'Content',
+  type: 'array'
     })
   ],
+  name: "project",
+  title: "Project",
+  type: "document",
 });
 

@@ -14,20 +14,20 @@ export default async function email(data: ConcactMeFields) {
     const { email, message } = validationResult.data;
     const mailOptionsToUser = {
       from: process.env.SMTP_USERNAME,
-      to: email,
-      subject: "Zakharov Artem",
       html: { path: "https://zakharov-artem.vercel.app/email.html" },
+      subject: "Zakharov Artem",
+      to: email,
     };
     const mailOptionsToMe = {
       from: process.env.SMTP_USERNAME,
-      to: "szakharovartem@gmail.com",
-      subject: "New message from portfolio",
       html: `
       <h1>New message from portfolio</h1>
       <h3>From: ${email}</h3>
       <h3>Message:</h3>
       <p>${message}</p>
       `,
+      subject: "New message from portfolio",
+      to: "szakharovartem@gmail.com",
     };
     await transporter.sendMail(mailOptionsToUser);
     await transporter.sendMail(mailOptionsToMe);

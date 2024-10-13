@@ -1,9 +1,6 @@
 import { defineType, defineField } from "sanity";
 
 export const tech = defineType({
-  name: "tech",
-  title: "Technology",
-  type: "document",
   fields: [
     defineField({
       name: "name",
@@ -20,8 +17,8 @@ export const tech = defineType({
     defineField({
       name: "category",
       title: "Tech category",
-      type: "reference",
       to: [{ type: "tech-category" }],
+      type: "reference",
       validation: (Rule) => Rule.required()
     }),
     defineField({
@@ -31,4 +28,7 @@ export const tech = defineType({
       validation: (Rule) => Rule.required()
     }),
   ],
+  name: "tech",
+  title: "Technology",
+  type: "document",
 });

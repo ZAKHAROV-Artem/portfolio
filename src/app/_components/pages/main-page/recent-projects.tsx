@@ -1,6 +1,7 @@
 "use client";
 
 import { useProjects } from "@/hooks/queries/use-projects";
+
 import ProjectItem from "../projects-page/project-item";
 
 export default function RecentProjects() {
@@ -15,7 +16,7 @@ export default function RecentProjects() {
         {projects
           ?.slice(0, 4)
           .map((project) => (
-            <ProjectItem project={project} key={project._id} />
+            <ProjectItem key={project._id} project={project} />
           ))}
       </div>
     </div>

@@ -15,12 +15,12 @@ type Props = {
   action: () => void;
 };
 export default function SliderControlButton({
+  action,
   children,
   className,
-  tooltipText,
-  tooltipClassName,
   page,
-  action,
+  tooltipClassName,
+  tooltipText,
 }: Props) {
   const [visible, toggleTooltip, setValue] = useToggle(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -32,7 +32,7 @@ export default function SliderControlButton({
   const handleMouse = (e: any) => {
     if (!ref.current) return;
     const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current?.getBoundingClientRect();
+    const { height, left, top, width } = ref.current?.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
     setPosition({ x: middleX, y: middleY });
@@ -46,24 +46,24 @@ export default function SliderControlButton({
   return (
     <Link href={`#${tooltipText}`}>
       <motion.div
+        animate={{ x, y }}
         className={cn(
           "absolute top-1/2 z-40 grid h-12 w-12 -translate-y-1/2 cursor-pointer place-content-center rounded-full border-2 border-dotted bg-transparent mix-blend-difference hover:border-dashed sm:h-16 sm:w-16",
           className,
         )}
-        ref={ref}
-        onMouseMove={handleMouse}
+        onClick={action}
+        onMouseEnter={() => setValue(true)}
         onMouseLeave={() => {
           reset();
           setValue(false);
         }}
-        animate={{ x, y }}
-        onClick={action}
-        onMouseEnter={() => setValue(true)}
+        onMouseMove={handleMouse}
+        ref={ref}
         transition={{
-          type: "spring",
-          stiffness: 300,
           damping: 15,
           mass: 0.1,
+          stiffness: 300,
+          type: "spring",
         }}
       >
         <div className="block text-center text-[12px] text-white sm:text-sm md:hidden">

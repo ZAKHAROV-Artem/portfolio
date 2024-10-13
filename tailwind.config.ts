@@ -2,55 +2,42 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 
 module.exports = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  darkMode: ["class"],
+  plugins: [require("tailwindcss-animate")],
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
         "2xl": "1360px",
-        xl: "1200px",
         lg: "1000px",
+        xl: "1200px",
       },
-    },
-    screens: {
-      xs: "480px",
-      // => @media (min-width: 480px) { ... }
-      sm: "640px",
-      // => @media (min-width: 640px) { ... }
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
-      lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-      xl: "1280px",
-      // => @media (min-width: 1280px) { ... }
-      "2xl": "1536px",
-      // => @media (min-width: 1536px) { ... }
     },
     extend: {
-      fontFamily: {
-        sans: ["var(--font-roboto-serif)", ...defaultTheme.fontFamily.sans],
-        amatic: ["var(--font-amatic)"],
-        slab: ["var(--font-roboto-slab)"],
-        "organic-relief": ["var(--font-organic-relief)"],
-      },
-      transitionDelay: {
-        "1200": "1200ms",
-        "1500": "1500ms",
-        "2000": "2000ms",
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin 10s linear infinite",
       },
       backgroundImage: {
+        loader: `linear-gradient(#f07e6e, #84cdfa, #5ad1cd);`,
         ua: `linear-gradient(to bottom,
           rgb(9, 77, 224) 0% 56%,
           rgb(245, 236, 66) 56% 100%
         );`,
-        loader: `linear-gradient(#f07e6e, #84cdfa, #5ad1cd);`,
+      },
+      fontFamily: {
+        amatic: ["var(--font-amatic)"],
+        "organic-relief": ["var(--font-organic-relief)"],
+        sans: ["var(--font-roboto-serif)", ...defaultTheme.fontFamily.sans],
+        slab: ["var(--font-roboto-slab)"],
       },
       keyframes: {
         "accordion-down": {
@@ -62,11 +49,25 @@ module.exports = {
           to: { height: 0 },
         },
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+      transitionDelay: {
+        "1200": "1200ms",
+        "1500": "1500ms",
+        "2000": "2000ms",
       },
     },
+    screens: {
+      // => @media (min-width: 1280px) { ... }
+      "2xl": "1536px",
+      // => @media (min-width: 768px) { ... }
+      lg: "1024px",
+      // => @media (min-width: 640px) { ... }
+      md: "768px",
+      // => @media (min-width: 480px) { ... }
+      sm: "640px",
+      // => @media (min-width: 1024px) { ... }
+      xl: "1280px",
+      xs: "480px",
+      // => @media (min-width: 1536px) { ... }
+    },
   },
-  plugins: [require("tailwindcss-animate")],
 };

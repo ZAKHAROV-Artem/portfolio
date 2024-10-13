@@ -1,7 +1,7 @@
 "use client";
-import { urlForImage } from "#/lib/image";
 import { useProjectPopover } from "@/hooks/state/use-project-popover";
 import { Project } from "@/types/sanity";
+import { urlForImage } from "#/lib/image";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 type Props = {
@@ -11,12 +11,12 @@ export default function ProjectItem({ project }: Props) {
   const { setProject, setTrue } = useProjectPopover();
   return (
     <div
+      className="group cursor-pointer space-y-1"
       onClick={() => {
         setProject(project);
         console.log("change");
         setTrue();
       }}
-      className="group cursor-pointer space-y-1"
     >
       <div className="flex items-center justify-between">
         <div className="font-amatic text-white">
@@ -30,13 +30,13 @@ export default function ProjectItem({ project }: Props) {
         <MoveUpRight className=" hidden h-7 w-7 text-white duration-300 group-hover:rotate-180 group-hover:scale-125 md:block" />{" "}
       </div>
       <Image
+        alt=""
+        className="opacity-0 duration-1000"
+        height={1080}
+        onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+        quality={100}
         src={urlForImage(project.images[0])}
         width={1920}
-        height={1080}
-        quality={100}
-        className="opacity-0 duration-1000"
-        onLoadingComplete={(image) => image.classList.remove("opacity-0")}
-        alt=""
       />
     </div>
   );

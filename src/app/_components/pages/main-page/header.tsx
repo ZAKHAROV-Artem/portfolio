@@ -1,7 +1,8 @@
 "use client";
 
-import SocialMedia from "@/components/ui/social-media";
+import CVbutton from "@/components/ui/cv-button";
 import ScrollDown from "@/components/ui/scroll-down";
+import SocialMedia from "@/components/ui/social-media";
 import { imageVariants } from "@/data/anim-data";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -10,10 +11,10 @@ export default function Header() {
   return (
     <div className="relative ">
       <motion.div
-        variants={imageVariants}
         animate="animate"
-        initial={"initial"}
         exit="exit"
+        initial={"initial"}
+        variants={imageVariants}
       >
         <header className="relative h-screen w-full bg-black">
           <div className="relative z-40 flex h-screen w-full flex-col items-center justify-center text-white">
@@ -29,31 +30,31 @@ export default function Header() {
             <SocialMedia />
           </div>
           <Image
+            alt={""}
             className="xl:w-88 absolute -right-20 -top-20 w-80 sm:-right-4 sm:-top-10 xl:top-10"
-            src="/shape-2.png"
-            quality={100}
-            width={509}
             height={576}
-            alt={""}
             priority
+            quality={100}
+            src="/shape-2.png"
+            width={509}
           />
           <Image
+            alt={""}
             className="absolute left-20 top-[65%] hidden xl:block"
-            src="/shape-3.png"
-            quality={100}
-            width={229}
             height={197}
-            alt={""}
             priority
+            quality={100}
+            src="/shape-3.png"
+            width={229}
           />
           <Image
-            className="absolute -left-20 top-[59%] w-80 sm:top-[57%] md:-left-10 md:w-96 xl:left-0 xl:top-0"
-            src="/shape-1.png"
-            quality={100}
-            width={559}
-            height={798}
             alt={""}
+            className="absolute -left-20 top-[59%] w-80 sm:top-[57%] md:-left-10 md:w-96 xl:left-0 xl:top-0"
+            height={798}
             priority
+            quality={100}
+            src="/shape-1.png"
+            width={559}
           />
         </header>
       </motion.div>

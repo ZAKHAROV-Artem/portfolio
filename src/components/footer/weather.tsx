@@ -1,7 +1,7 @@
 "use client";
 
-import { useWeather } from "@/hooks/queries/use-weather";
 import wmo from "@/../public/wmo.json";
+import { useWeather } from "@/hooks/queries/use-weather";
 import Image from "next/image";
 export default function Weather() {
   const { data, isSuccess } = useWeather();
@@ -21,14 +21,14 @@ export default function Weather() {
           }
         </span>
         <Image
+          alt="Weather icon"
+          height={40}
           src={
             wmo[data.data.current.weather_code as keyof typeof wmo][
               data.data.current.is_day ? "day" : "night"
             ].image
           }
           width={40}
-          height={40}
-          alt="Weather icon"
         />
       </div>
     </div>
