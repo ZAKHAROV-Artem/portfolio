@@ -1,5 +1,6 @@
-import { Linkedin, Github, Instagram, Send } from "lucide-react";
+import { Github, Instagram, Linkedin, Send } from "lucide-react";
 import Link from "next/link";
+
 export default function SocialMedia() {
   return (
     <div className="flex w-fit gap-x-3 text-white">

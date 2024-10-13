@@ -1,8 +1,9 @@
 import ScrollDown from "@/components/ui/scroll-down";
-import { wrapperVariants, imageVariants } from "@/data/anim-data";
+import { imageVariants, wrapperVariants } from "@/data/anim-data";
 import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 type Props = {
   direction: number;
 };

@@ -3,6 +3,7 @@
 import wmo from "@/../public/wmo.json";
 import { useWeather } from "@/hooks/queries/use-weather";
 import Image from "next/image";
+
 export default function Weather() {
   const { data, isSuccess } = useWeather();
   if (!isSuccess) return null;

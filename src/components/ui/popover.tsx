@@ -16,7 +16,7 @@ const PopoverContent = React.forwardRef<
     <PopoverPrimitive.Content
       align={align}
       className={cn(
-        `z-50 w-screen h-screen fixed top-0 left-0 bg-black p-4
+        `fixed left-0 top-0 z-50 h-screen w-screen bg-black p-4
          text-white outline-none
          data-[state=open]:animate-in data-[state=closed]:animate-out 
          data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 
@@ -24,7 +24,7 @@ const PopoverContent = React.forwardRef<
          data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 
          data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2
       `,
-        className
+        className,
       )}
       ref={ref}
       sideOffset={sideOffset}
@@ -34,4 +34,4 @@ const PopoverContent = React.forwardRef<
 ));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverTrigger, PopoverContent };
+export { Popover, PopoverContent, PopoverTrigger };

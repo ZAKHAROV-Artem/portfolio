@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/footer";
-import CVbutton from "@/components/ui/cv-button";
 import { wrapperVariants } from "@/data/anim-data";
 import { motion } from "framer-motion";
 

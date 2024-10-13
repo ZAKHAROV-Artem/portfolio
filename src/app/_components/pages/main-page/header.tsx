@@ -1,6 +1,5 @@
 "use client";
 
-import CVbutton from "@/components/ui/cv-button";
 import ScrollDown from "@/components/ui/scroll-down";
 import SocialMedia from "@/components/ui/social-media";
 import { imageVariants } from "@/data/anim-data";

@@ -1,11 +1,9 @@
 "use client";
 
 import Badge from "@/components/ui/badge";
-import ScrollDown from "@/components/ui/scroll-down";
-import { wrapperVariants, imageVariants } from "@/data/anim-data";
+import { imageVariants, wrapperVariants } from "@/data/anim-data";
 import { useTech } from "@/hooks/queries/use-tech";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 import TechItem from "../main-page/tech-item";
 

@@ -3,7 +3,7 @@
  */
 
 import { visionTool } from "@sanity/vision";
-import { projectId, dataset, apiVersion } from "#/env";
+import { apiVersion, dataset, projectId } from "#/env";
 import { schema } from "#/schema";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";

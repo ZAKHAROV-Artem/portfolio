@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 import { wrap } from "@popmotion/popcorn";
 import { AnimatePresence } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
-  ProjectsPage,
   AboutMePage,
-  TechPage,
   MainPage,
+  ProjectsPage,
+  TechPage,
 } from "./_components/pages";
 
 const pages = ["Home", "About me", "Projects", "Tech"];

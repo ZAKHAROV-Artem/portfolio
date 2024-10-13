@@ -1,8 +1,7 @@
 "use client";
-import { wrapperVariants, imageVariants } from "@/data/anim-data";
+import { imageVariants, wrapperVariants } from "@/data/anim-data";
 import { useProjects } from "@/hooks/queries/use-projects";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 import ProjectItem from "./project-item";
 
