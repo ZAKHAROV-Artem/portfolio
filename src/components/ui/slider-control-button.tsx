@@ -7,12 +7,12 @@ import { ReactNode, useRef, useState } from "react";
 import { useToggle } from "usehooks-ts";
 
 type Props = {
+  action: () => void;
   children: ReactNode;
   className?: string;
+  page?: string;
   tooltipClassName: string;
   tooltipText: string;
-  page?: string;
-  action: () => void;
 };
 export default function SliderControlButton({
   action,

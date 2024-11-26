@@ -4,18 +4,18 @@ import { immer } from "zustand/middleware/immer";
 
 type State = {
   open: boolean;
-  project: Project | null;
+  project: null | Project;
 };
 
 type Actions = {
-  toggle: () => void;
-  setTrue: () => void;
   setFalse: () => void;
   setOpen: (open: boolean) => void;
   setProject: (project: Project) => void;
+  setTrue: () => void;
+  toggle: () => void;
 };
 
-export const useProjectPopover = create<State & Actions>()(
+export const useProjectPopover = create<Actions & State>()(
   immer((set) => ({
     open: false,
     project: null,

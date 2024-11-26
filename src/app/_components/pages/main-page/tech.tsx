@@ -1,8 +1,8 @@
 "use client";
 
+import { urlForImage } from "#/lib/image";
 import Badge from "@/components/ui/badge";
 import { useTech } from "@/hooks/queries/use-tech";
-import { urlForImage } from "#/lib/image";
 import dayjs from "dayjs";
 import Image from "next/image";
 

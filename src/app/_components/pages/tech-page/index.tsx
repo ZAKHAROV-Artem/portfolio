@@ -10,6 +10,7 @@ import TechItem from "../main-page/tech-item";
 type Props = {
   direction: number;
 };
+
 export default function TechPage({ direction }: Props) {
   const { data: tech } = useTech();
   return (
@@ -21,48 +22,155 @@ export default function TechPage({ direction }: Props) {
       initial={"initial"}
       variants={wrapperVariants}
     >
-      <div className="container relative my-5 flex h-full items-center">
+      <div className="container relative my-5 flex h-full justify-center">
         <motion.div
           animate="animate"
           exit="exit"
           initial={"initial"}
           variants={imageVariants}
         >
-          <div className="grid gap-10 xl:grid-cols-2">
+          <h1 className="mb-5 text-white">
+            I have over 8 years of programming experience, having worked with a
+            wide range of technologies, though not all are listed here.
+          </h1>
+          <div className="grid  gap-10 sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4">
             <div>
-              <Badge>Web</Badge>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <Badge>Frontend Development</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
                 {tech
-                  ?.filter((tech) => tech.category.name === "Web")
-                  .map((tech) => <TechItem key={tech._id} tech={tech} />)}
+                  ?.filter(
+                    (tech) => tech.category.name === "Frontend Development",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
               </div>
             </div>
             <div>
-              <Badge>Frameworks</Badge>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <Badge>State Management</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
                 {tech
-                  ?.filter((tech) => tech.category.name === "Frameworks")
-                  .map((tech) => <TechItem key={tech._id} tech={tech} />)}
+                  ?.filter((tech) => tech.category.name === "State Management")
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
               </div>
             </div>
             <div>
-              <Badge>Libraries</Badge>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <Badge>Data Fetching</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
                 {tech
-                  ?.filter((tech) => tech.category.name === "Libraries")
-                  .map((tech) => <TechItem key={tech._id} tech={tech} />)}
+                  ?.filter((tech) => tech.category.name === "Data Fetching")
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
               </div>
             </div>
             <div>
-              <Badge>Data</Badge>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <Badge>Forms and Validation</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
                 {tech
-                  ?.filter((tech) => tech.category.name === "Data")
-                  .map((tech) => <TechItem key={tech._id} tech={tech} />)}
+                  ?.filter(
+                    (tech) => tech.category.name === "Forms and Validation",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>DB and ORMs</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter(
+                    (tech) => tech.category.name === "Databases and ORMs",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>CMS</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter(
+                    (tech) =>
+                      tech.category.name === "Content Management Systems (CMS)",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>Real-Time</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter(
+                    (tech) => tech.category.name === "Real-Time Communication",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>Backend Development</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter(
+                    (tech) => tech.category.name === "Backend Development",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>Testing</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter((tech) => tech.category.name === "Testing")
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>Mobile Development</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter(
+                    (tech) => tech.category.name === "Mobile Development",
+                  )
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>Other Skills</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter((tech) => tech.category.name === "Other Skills")
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
+              </div>
+            </div>
+            <div>
+              <Badge>Other packages</Badge>
+              <div className="mt-3 grid gap-3 sm:grid-cols-1">
+                {tech
+                  ?.filter((tech) => tech.category.name === "Other packages")
+                  .map((tech) => (
+                    <TechItem key={tech._id} size="small" tech={tech} />
+                  ))}
               </div>
             </div>
           </div>
-        </motion.div>{" "}
+        </motion.div>
       </div>
     </motion.div>
   );

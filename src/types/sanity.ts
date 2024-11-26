@@ -1,32 +1,32 @@
 export type Project = {
-  _id: string;
   _createdAt: Date;
+  _id: string;
+  content: any[];
+  images: Media[];
+  link?: string;
   name: string;
   slug: string;
-  link?: string;
   tech: Tech[];
-  images: Media[];
-  content: any[];
 };
 export type Tech = {
-  _id: string;
   _createdAt: Date;
-  name: string;
-  experience: number;
+  _id: string;
   category: TechCategory;
-  image: Media;
+  experience?: number;
+  image?: Media;
+  name: string;
 };
 export type TechCategory = {
-  _id: string;
   _createdAt: Date;
+  _id: string;
   name: string;
 };
 
 export type Media = {
+  _key: string;
+  _type: string;
   asset: {
     _ref: string;
     _type: string;
   };
-  _key: string;
-  _type: string;
 };

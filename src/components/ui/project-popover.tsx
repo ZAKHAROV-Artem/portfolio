@@ -1,9 +1,9 @@
 "use client";
+import { urlForImage } from "#/lib/image";
 import { Popover, PopoverContent } from "@/components/ui/popover";
 import { components } from "@/data/components-portable-text";
 import { useProjectPopover } from "@/hooks/state/use-project-popover";
 import { PortableText } from "@portabletext/react";
-import { urlForImage } from "#/lib/image";
 import { Minimize2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

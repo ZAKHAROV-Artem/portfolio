@@ -12,7 +12,6 @@ export const tech = defineType({
       name: "experience",
       title: "Started using in (year)",
       type: "number",
-      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: "category",
@@ -25,7 +24,6 @@ export const tech = defineType({
       name: "image",
       title: "Tech image",
       type: "image",
-      validation: (Rule) => Rule.required()
     }),
   ],
   name: "tech",

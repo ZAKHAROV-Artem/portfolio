@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
 import getTech from "#/actions/get/getTech";
+import { useQuery } from "@tanstack/react-query";
 
 export const useTech = () => {
   const query = useQuery({

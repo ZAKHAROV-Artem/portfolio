@@ -1,12 +1,6 @@
 {
-  "extends": "next/core-web-vitals",
-  "plugins": ["perfectionist"],
-  "rules": {
-    "perfectionist/sort-imports": "error",
-    "perfectionist/sort-jsx-props": "error",
-    "perfectionist/sort-objects": "error",
-    "perfectionist/sort-exports": "error",
-    "perfectionist/sort-named-exports": "error",
-    "perfectionist/sort-named-imports": "error"
-  }
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:perfectionist/recommended-natural-legacy"
+  ]
 }
