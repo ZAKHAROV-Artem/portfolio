@@ -26,7 +26,6 @@ export default function Header() {
             <span className="relative bg-ua bg-clip-text p-2 text-center text-xl text-transparent sm:text-2xl md:text-4xl">
               Fullstack developer
             </span>
-            <SocialMedia />
           </div>
           <Image
             alt={""}
